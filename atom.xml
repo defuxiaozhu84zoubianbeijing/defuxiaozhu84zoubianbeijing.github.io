@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>德芙小猪的博客</title>
-  <subtitle>一个前端程序猿的博客</subtitle>
-  <link href="/atom.xml" rel="self"/>
+  <title>德芙小猪的博客--前端程序猿的博客</title>
+  
+  <link href="/blog/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-11-06T06:48:30.787Z</updated>
+  <updated>2016-11-06T06:58:01.152Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,10 +17,10 @@
   
   <entry>
     <title>我的测试文章</title>
-    <link href="http://yoursite.com/2016/11/06/test/"/>
-    <id>http://yoursite.com/2016/11/06/test/</id>
+    <link href="http://yoursite.com/test/"/>
+    <id>http://yoursite.com/test/</id>
     <published>2016-11-06T06:36:14.000Z</published>
-    <updated>2016-11-06T06:48:30.787Z</updated>
+    <updated>2016-11-06T06:58:01.152Z</updated>
     
     <content type="html"><![CDATA[<p>简单测试一下，呵呵</p>
 <a id="more"></a>]]></content>
@@ -40,8 +40,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="http://yoursite.com/2016/11/04/hello-world/"/>
-    <id>http://yoursite.com/2016/11/04/hello-world/</id>
+    <link href="http://yoursite.com/hello-world/"/>
+    <id>http://yoursite.com/hello-world/</id>
     <published>2016-11-04T11:56:47.112Z</published>
     <updated>2016-11-06T06:44:08.692Z</updated>
     
