@@ -118,7 +118,7 @@ https://open.weixin">
 网页授权的流程第一步:引导用户进入授权页面，获取code在确保用户拥有授权作用域(scope参数)的权限的前提下(服务号获取高级接口后，默认拥有scope参数的snsapi_base和snsapi_userinfo) , 引导用户打开下面的链接.
 
 https://open.weixin">
-<meta property="og:updated_time" content="2016-11-07T07:11:51.873Z">
+<meta property="og:updated_time" content="2016-11-07T07:16:15.234Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="微信公众号开发系列之 如何获取用户网页授权">
 <meta name="twitter:description" content="如果用户在微信客户端中访问第三方网页，公众号可以通过微信网页授权机制，来获取用户基本信息，进而实现业务逻辑。
@@ -428,6 +428,7 @@ https://open.weixin">
 <blockquote>
 <p>code说明 ：<br>code作为换取access_token的票据，每次用户授权带上的code将不一样，<br>code只能使用一次，5分钟未被使用自动过期。</p>
 </blockquote>
+<a id="more"></a>
 <h2 id="第二步：通过code换取网页授权access-token"><a href="#第二步：通过code换取网页授权access-token" class="headerlink" title="第二步：通过code换取网页授权access_token"></a>第二步：通过code换取网页授权access_token</h2><p>首先请注意，这里通过code换取的是一个特殊的网页授权access_token,与基础支持中的access_token<br>（该access_token用于调用其他接口）不同。<br>公众号可通过下述接口来获取网页授权access_token。如果网页授权的作用域为snsapi_base，<br>则本步骤中获取到网页授权access_token的同时，<br>也获取到了openid，snsapi_base式的网页授权流程即到此为止。</p>
 <p><em>尤其注意：由于公众号的secret和获取到的access_token安全级别都非常高，必须只保存在服务器，不允许传给客户端。后续刷新access_token、通过access_token获取用户信息等步骤，也必须从服务器发起。</em></p>
 <p><em>请求方法</em></p>

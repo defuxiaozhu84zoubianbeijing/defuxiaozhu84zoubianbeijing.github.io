@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://defuxiaozhu84zoubianbeijing.github.io/"/>
-  <updated>2016-11-07T07:11:51.873Z</updated>
+  <updated>2016-11-07T07:16:15.234Z</updated>
   <id>http://defuxiaozhu84zoubianbeijing.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://defuxiaozhu84zoubianbeijing.github.io/2016/11/07/weChat/"/>
     <id>http://defuxiaozhu84zoubianbeijing.github.io/2016/11/07/weChat/</id>
     <published>2016-11-07T05:42:57.000Z</published>
-    <updated>2016-11-07T07:11:51.873Z</updated>
+    <updated>2016-11-07T07:16:15.234Z</updated>
     
     <content type="html"><![CDATA[<p>如果用户在微信客户端中访问第三方网页，公众号可以通过微信网页授权机制，来获取用户基本信息，进而实现业务逻辑。</p>
 <hr>
@@ -43,6 +43,7 @@
 <blockquote>
 <p>code说明 ：<br>code作为换取access_token的票据，每次用户授权带上的code将不一样，<br>code只能使用一次，5分钟未被使用自动过期。</p>
 </blockquote>
+<a id="more"></a>
 <h2 id="第二步：通过code换取网页授权access-token"><a href="#第二步：通过code换取网页授权access-token" class="headerlink" title="第二步：通过code换取网页授权access_token"></a>第二步：通过code换取网页授权access_token</h2><p>首先请注意，这里通过code换取的是一个特殊的网页授权access_token,与基础支持中的access_token<br>（该access_token用于调用其他接口）不同。<br>公众号可通过下述接口来获取网页授权access_token。如果网页授权的作用域为snsapi_base，<br>则本步骤中获取到网页授权access_token的同时，<br>也获取到了openid，snsapi_base式的网页授权流程即到此为止。</p>
 <p><em>尤其注意：由于公众号的secret和获取到的access_token安全级别都非常高，必须只保存在服务器，不允许传给客户端。后续刷新access_token、通过access_token获取用户信息等步骤，也必须从服务器发起。</em></p>
 <p><em>请求方法</em></p>
@@ -114,7 +115,25 @@
     
       &lt;p&gt;如果用户在微信客户端中访问第三方网页，公众号可以通过微信网页授权机制，来获取用户基本信息，进而实现业务逻辑。&lt;/p&gt;
 &lt;hr&gt;
-&lt;h1 id=&quot;网页授权的流程&quot;&gt;&lt;a href=&quot;#网页授权的流程&quot; class=&quot;headerlink&quot; title=&quot;网页授权的流程&quot;&gt;&lt;/
+&lt;h1 id=&quot;网页授权的流程&quot;&gt;&lt;a href=&quot;#网页授权的流程&quot; class=&quot;headerlink&quot; title=&quot;网页授权的流程&quot;&gt;&lt;/a&gt;网页授权的流程&lt;/h1&gt;&lt;h2 id=&quot;第一步-引导用户进入授权页面，获取code&quot;&gt;&lt;a href=&quot;#第一步-引导用户进入授权页面，获取code&quot; class=&quot;headerlink&quot; title=&quot;第一步:引导用户进入授权页面，获取code&quot;&gt;&lt;/a&gt;第一步:引导用户进入授权页面，获取code&lt;/h2&gt;&lt;p&gt;在确保用户拥有授权作用域(scope参数)的权限的前提下(服务号获取高级接口后，默认拥有scope参数的snsapi_base和snsapi_userinfo) , 引导用户打开下面的链接.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://open.weixin.qq.com/connect/oauth2/authorize?appid=APPID&amp;amp;redirect_uri=REDIRECT_URI&quot;&gt;https://open.weixin.qq.com/connect/oauth2/authorize?appid=APPID&amp;amp;redirect_uri=REDIRECT_URI&lt;/a&gt;&lt;br&gt;&amp;amp;response_type=code&amp;amp;s cope=SCOPE&amp;amp;state=STATE#wechat_redirect&lt;/p&gt;
+&lt;p&gt;如果提示无法打开链接，请查看scope参数对应的作用域权限 或者看下 自己的参数是否书写正确&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;em&gt;尤其注意：由于授权操作安全等级较高，所以在发起授权请求时，微信会对授权链接做正则强匹配校验，如果链接的参数顺序不对，授权页面将无法正常访问&lt;/em&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;参考链接(请在微信客户端中打开此链接体验)&lt;/em&gt;&lt;br&gt;&lt;em&gt;Scope为snsapi_base&lt;/em&gt;&lt;br&gt;&lt;a href=&quot;https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx520c15f417810387&amp;amp;redirect_uri=https%3A%2F%2Fchong.qq.com%2Fphp%2Findex.php%3Fd%3D%26c%3DwxAdapter%26m%3DmobileDeal%26showwxpaytitle%3D1%26vb2ctag%3D4_2030_5_1194_60&amp;amp;response_type=code&amp;amp;scope=snsapi_base&amp;amp;state=123#wechat_redirect&quot;&gt;https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx520c15f417810387&amp;amp;redirect_uri=https%3A%2F%2Fchong.qq.com%2Fphp%2Findex.php%3Fd%3D%26c%3DwxAdapter%26m%3DmobileDeal%26showwxpaytitle%3D1%26vb2ctag%3D4_2030_5_1194_60&amp;amp;response_type=code&amp;amp;scope=snsapi_base&amp;amp;state=123#wechat_redirect&lt;/a&gt;&lt;br&gt;&lt;em&gt;Scope为snsapi_userinfo&lt;/em&gt;&lt;br&gt;&lt;a href=&quot;https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxf0e81c3bee622d60&amp;amp;redirect_uri=http%3A%2F%2Fnba.bluewebgame.com%2Foauth_response.php&amp;amp;response_type=code&amp;amp;scope=snsapi_userinfo&amp;amp;state=STATE#wechat_redirect&quot;&gt;https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxf0e81c3bee622d60&amp;amp;redirect_uri=http%3A%2F%2Fnba.bluewebgame.com%2Foauth_response.php&amp;amp;response_type=code&amp;amp;scope=snsapi_userinfo&amp;amp;state=STATE#wechat_redirect&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;em&gt;尤其注意:回调的redirect_url ,应当使用https 链接来确保授权code的安全性.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;*参数说明:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;appid : 公众号唯一标识 必须&lt;br&gt;redirect_uri : 授权后重定向的回调链接地址，请使用urlencode对链接进行处理 必须&lt;br&gt;response_type : 返回类型，请填写code 必须&lt;br&gt;response_type : 返回类型，请填写code 必须&lt;br&gt;scope : 应用授权作用域，snsapi_base （不弹出授权页面，直接跳转，只能获取用户openid），snsapi_userinfo&lt;br&gt;（弹出授权页面，可通过openid拿到昵称、性别、所在地。并且，即使在未关注的情况下，只要用户授权，也能获取其信息)&lt;br&gt;state : 重定向后会带上state参数，开发者可以填写a-zA-Z0-9的参数值，最多128字节 不必须&lt;/p&gt;
+&lt;p&gt;#wechat_redirect 无论直接打开还是做页面302重定向时候，必须带此参数 必须&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;em&gt;用户同意授权后&lt;/em&gt;&lt;br&gt;如果用户同意授权，页面将跳转至 redirect_uri/?code=CODE&amp;amp;state=STATE。若用户禁止授权，则重定向后不会带上code参数，仅会带上state参数redirect_uri?state=STATE&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;code说明 ：&lt;br&gt;code作为换取access_token的票据，每次用户授权带上的code将不一样，&lt;br&gt;code只能使用一次，5分钟未被使用自动过期。&lt;/p&gt;
+&lt;/blockquote&gt;
     
     </summary>
     
